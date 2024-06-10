@@ -6,6 +6,7 @@ import { FaMicrophone } from "react-icons/fa6";
 import { IoIosSearch } from "react-icons/io";
 import Logo from "../../assets/Logo2.jpg";
 import { MdOutlineVideoCall } from "react-icons/md";
+import { NavLink } from "react-router-dom";
 import { ProductData } from "../../static";
 import { TbBell } from "react-icons/tb";
 
@@ -27,10 +28,12 @@ const Header = () => {
   };
 
   let searchResultItems = searchResults.map((product) => (
-    <div className="header__search__result">
-      <img src={product.image} alt="" />
-      <p> {product.title}</p>
-    </div>
+    <NavLink to={`/product/${product.id}`}>
+      <div className="header__search__result">
+        <img src={product.image} alt="" />
+        <p> {product.title}</p>
+      </div>
+    </NavLink>
   ));
 
   return (

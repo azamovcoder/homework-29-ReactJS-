@@ -2,6 +2,7 @@ import "./products.scss";
 
 import React, { useState } from "react";
 
+import { NavLink } from "react-router-dom";
 import { ProductData } from "../../static";
 
 const Products = () => {
@@ -45,9 +46,11 @@ const Products = () => {
       <div className="product__cards">
         {filteredProducts.slice(0, visibleProducts).map((product) => (
           <div key={product?.id} className="product__card">
-            <div className="product__card__img">
-              <img src={product?.image} alt="" />
-            </div>
+            <NavLink to={`/product/${product.id}`}>
+              <div className="product__card__img">
+                <img src={product?.image} alt="" />
+              </div>
+            </NavLink>
             <div className="product__card__info">
               <h3>{product?.title}</h3>
               <div className="df">

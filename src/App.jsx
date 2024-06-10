@@ -1,13 +1,17 @@
 import "./App.css";
 
-import Header from "./components/Header";
-import Products from "./components/products";
+import { Route, Routes } from "react-router-dom";
+
+import Home from "./pages/home";
+import SinglePage from "./pages/singlePage";
 
 function App() {
   return (
     <>
-      <Header />
-      <Products />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/product/:id" element={<SinglePage />} />
+      </Routes>
     </>
   );
 }
